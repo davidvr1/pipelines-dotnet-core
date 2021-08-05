@@ -32,8 +32,8 @@ pipeline {
 
     stage('pacakage') {
       steps {
-        cleanWs(cleanWhenSuccess: true)
         sh 'pkill -f dotnet'
+        cleanWs(cleanWhenSuccess: true)
       }
     }
 
