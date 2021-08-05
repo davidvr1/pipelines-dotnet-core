@@ -25,8 +25,19 @@ pipeline {
     }
 
     stage('publish') {
-      steps {
-        sh 'dotnet publish'
+      parallel {
+        stage('publish') {
+          steps {
+            sh 'dotnet publish &'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'curl localhost:5000'
+          }
+        }
+
       }
     }
 
