@@ -32,8 +32,8 @@ pipeline {
 
     stage('pacakage') {
       steps {
-        sh 'pkill -f dotnet'
         cleanWs(cleanWhenSuccess: true)
+        zip(zipFile: 'dotnetecorepipeline', archive: true, overwrite: true, dir: '~\\home\\vagrant\\archive\\')
       }
     }
 
