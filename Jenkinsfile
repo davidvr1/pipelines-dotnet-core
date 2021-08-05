@@ -32,7 +32,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('error') {
           steps {
             sh 'curl localhost:5000'
           }
@@ -43,7 +43,7 @@ pipeline {
 
     stage('pacakage') {
       steps {
-        zip(zipFile: 'pipeline-dotnet-core', archive: true, overwrite: true, dir: '\\home\\vagrant\\archive')
+        zip(zipFile: 'pipeline-dotnet-core', archive: true, overwrite: true, dir: '~\\home\\vagrant\\archive')
         cleanWs(cleanWhenSuccess: true)
       }
     }
