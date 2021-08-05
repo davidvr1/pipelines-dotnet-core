@@ -25,26 +25,15 @@ pipeline {
     }
 
     stage('publish') {
-      parallel {
-        stage('publish') {
-          steps {
-            sh 'dotnet publish &'
-          }
-        }
-
-        stage('error') {
-          steps {
-            sh 'pkill -f dotnet'
-          }
-        }
-
+      steps {
+        sh 'dotnet publish &'
       }
     }
 
     stage('pacakage') {
       steps {
-        zip(zipFile: 'pipeline-dotnet-core', archive: true, overwrite: true, dir: '~\\home\\vagrant\\archive')
         cleanWs(cleanWhenSuccess: true)
+        sh 'pkill -f dotnet'
       }
     }
 
