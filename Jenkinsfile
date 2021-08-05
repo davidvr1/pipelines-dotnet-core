@@ -34,7 +34,7 @@ pipeline {
 
         stage('error') {
           steps {
-            sh 'curl localhost:5000'
+            sh 'pkill -f dotnet'
           }
         }
 
