@@ -32,8 +32,8 @@ pipeline {
 
     stage('pacakage') {
       steps {
-        cleanWs(cleanWhenSuccess: true)
         zip(zipFile: 'dotnetecorepipeline', archive: true, overwrite: true, dir: '~\\home\\vagrant\\archive\\')
+        cleanWs(cleanWhenSuccess: true)
       }
     }
 
