@@ -20,7 +20,7 @@ pipeline {
 
     stage('run the app') {
       steps {
-        sh 'dotnet run'
+        sh 'dotnet run &'
       }
     }
 
